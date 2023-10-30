@@ -42,8 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntities\PersistentEntity.cs" />
+    <Compile Include="Contracts\AppServices\IGetProductsService.cs" />
+    <Compile Include="Contracts\AppServices\IServiceTest.cs" />
     <Compile Include="Contracts\Repositories\IRepository.cs" />
+    <Compile Include="Entities\Brand.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductInfo.cs" />
+    <Compile Include="Enumerations\ProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

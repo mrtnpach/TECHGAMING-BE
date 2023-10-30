@@ -1,4 +1,6 @@
-﻿using PAD2023BackEnd.Data.Repositories;
+﻿using PAD2023BackEnd.Aplication.Services;
+using PAD2023BackEnd.Data.Repositories;
+using PAD2023BackEnd.Domain.Contracts.AppServices;
 using PAD2023BackEnd.Domain.Contracts.Repositories;
 using PAD2023BackEnd.Domain.Entities;
 using PAD2023BackEnd.Transverse.Interfaces;
@@ -38,6 +40,8 @@ namespace PAD2023BackEnd.DistributedServices.DependencyInjection
 
             // Register definitions
             _unityContainer.RegisterSingleton<IRepository<Product>, ProductoMockRepo>();
+            _unityContainer.RegisterType<IServiceTest, ServiceTest>();
+            _unityContainer.RegisterType<IGetProductsService, GetProductsService>();
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using PAD2023BackEnd.Domain.Contracts.Repositories;
 using PAD2023BackEnd.Domain.Entities;
+using PAD2023BackEnd.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,16 @@ namespace PAD2023BackEnd.Data.Repositories
 
         public ProductoMockRepo()
         {
-            Product p1 = new Product() { Id = 1, Name = "Producto1", Price = 250.75M };
-            Product p2 = new Product() { Id = 2, Name = "Producto2", Price = 500.00M };
-            Product p3 = new Product() { Id = 3, Name = "Producto3", Price = 750.75M };
-            Product p4 = new Product() { Id = 4, Name = "Producto4", Price = 840.50M };
-            Product p5 = new Product() { Id = 5, Name = "Producto5", Price = 900.00M };
-            _items.Add(p1);
-            _items.Add(p2);
-            _items.Add(p3);
-            _items.Add(p4);
-            _items.Add(p5);
+            ProductInfo p1 = new ProductInfo() { Name = "Producto1", Price = 250.75M, Category = ProductCategory.Notebook };
+            ProductInfo p2 = new ProductInfo() { Name = "Producto2", Price = 500.00M, Category = ProductCategory.BuiltPC };
+            ProductInfo p3 = new ProductInfo() { Name = "Producto3", Price = 750.75M, Category = ProductCategory.Peripheral };
+            ProductInfo p4 = new ProductInfo() { Name = "Producto4", Price = 840.50M, Category = ProductCategory.BuiltPC };
+            ProductInfo p5 = new ProductInfo() { Name = "Producto5", Price = 900.00M, Category = ProductCategory.Components };
+            _items.Add(new Product() { Id = 1, ProductInfo = p1, Stock = 499});
+            _items.Add(new Product() { Id = 2, ProductInfo = p2, Stock = 499});
+            _items.Add(new Product() { Id = 3, ProductInfo = p3, Stock = 499});
+            _items.Add(new Product() { Id = 4, ProductInfo = p4, Stock = 499});
+            _items.Add(new Product() { Id = 5, ProductInfo = p5, Stock = 499});
         }
 
         public void Delete(int id)

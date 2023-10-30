@@ -1,5 +1,7 @@
-﻿using PAD2023BackEnd.Domain.Contracts.Repositories;
+﻿using PAD2023BackEnd.Domain.Contracts.AppServices;
+using PAD2023BackEnd.Domain.Contracts.Repositories;
 using PAD2023BackEnd.Domain.Entities;
+using PAD2023BackEnd.Domain.Enumerations;
 using PAD2023BackEnd.Transverse.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -26,11 +28,28 @@ namespace PAD2023BackEnd.DistributedServices.Services
             // Idealmente la inyeccion estaria hecha por constructor,
             // pero no se el funcionamiento interno de esto je
             // Por lo menos sirve para pruebas
-            IRepository<Product> repository = 
-                Factory.Instance.Container.Create<IRepository<Product>>();
-            Product product = repository.Get(id);
-            
-            return product;
+            IGetProductsService service =
+                Factory.Instance.Container.Create<IGetProductsService>();
+
+            return service.GetProductById(id);
+        }
+
+        [WebMethod]
+        public List<Product> GetProductsByCategory(ProductCategory category)
+        {
+            IGetProductsService service =
+                Factory.Instance.Container.Create<IGetProductsService>();
+
+            return service.GetProductsByCategory(category);
+        }
+
+        [WebMethod]
+        public List<Product> GetAllProducts()
+        {
+            IGetProductsService service =
+                Factory.Instance.Container.Create<IGetProductsService>();
+
+            return service.GetAllProducts();
         }
     }
 }

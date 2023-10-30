@@ -1,4 +1,5 @@
 ﻿using PAD2023BackEnd.Domain.BaseEntities;
+using PAD2023BackEnd.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace PAD2023BackEnd.Domain.Entities
 {
     public class Product : PersistentEntity
     {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        public ProductInfo ProductInfo { get; set; }
+        public int Stock { get; set; }
     }
 }
