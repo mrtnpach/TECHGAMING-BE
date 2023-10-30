@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using Unity;
+using Unity.Injection;
 
 namespace PAD2023BackEnd.DistributedServices.DependencyInjection
 {
@@ -36,13 +37,14 @@ namespace PAD2023BackEnd.DistributedServices.DependencyInjection
         private void ConfigureContainer()
         {
             // Database definition
+            //string connectionUri = "mongodb+srv://Agustin030s:G.N@6K#6R_nCiBS@cluster0.2a0uvlf.mongodb.net/?retryWrites=true&w=majority";
+            var conexion = ConfigurationManager.ConnectionStrings["MongoDB"].ConnectionString;
             //string conectionString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
 
             // Register definitions
-            _unityContainer.RegisterSingleton<IRepository<Product>, ProductoMockRepo>();
+            _unityContainer.RegisterSingleton<IRepository<Product>, ProductoMockRepo>(new InjectionConstructor(conexion));
             _unityContainer.RegisterType<IServiceTest, ServiceTest>();
             _unityContainer.RegisterType<IGetProductsService, GetProductsService>();
-
         }
     }
 }

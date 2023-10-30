@@ -1,4 +1,5 @@
-﻿using PAD2023BackEnd.Domain.BaseEntities;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using PAD2023BackEnd.Domain.BaseEntities;
 using PAD2023BackEnd.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
