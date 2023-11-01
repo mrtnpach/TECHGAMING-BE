@@ -1,0 +1,27 @@
+{
+    "ObjectId": 1,
+    "ProductInfo": {
+    "Name": "Producto1",
+    "Category": 0,
+    "Price": 50,
+    "Rating": 10,
+    "Brand": {
+        "ObjectId": 1,
+        "Name": "MarcaA",
+        "Website": "",
+        "LogoURL": "",
+        "Description": "Descripcion MarcaA"
+    },
+    "Description": "Un producto de prueba",
+    "Specifications": [
+        "Especificacion 1", "Especificacion 2", "Especificacion 3" 
+    ],
+    "ShortDescription": "Descripcion corta",
+    "MainImageURL": "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_16752_Procesador_AMD_RYZEN_3_3200G_4.0GHz_Turbo___Radeon_Vega_8_AM4_Wraith_Stealth_Cooler_f414a507-grn.jpg",
+    "ImageURLs": [
+        "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_16752_Procesador_AMD_RYZEN_3_3200G_4.0GHz_Turbo___Radeon_Vega_8_AM4_Wraith_Stealth_Cooler_f414a507-grn.jpg",
+        "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_16753_Procesador_AMD_RYZEN_3_3200G_4.0GHz_Turbo___Radeon_Vega_8_AM4_Wraith_Stealth_Cooler_449abff9-grn.jpg"
+    ]
+    },
+    "Stock": 50
+}
