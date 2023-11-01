@@ -12,6 +12,12 @@ namespace PAD2023BackEnd.Data.Repositories
     public class ProductoMockRepo : IRepository<Product>
     {
         private List<Product> _items = new List<Product>();
+        private string connect;
+
+        public ProductoMockRepo(string connection)
+        {
+            connect = connection;
+        }
 
         public ProductoMockRepo()
         {
