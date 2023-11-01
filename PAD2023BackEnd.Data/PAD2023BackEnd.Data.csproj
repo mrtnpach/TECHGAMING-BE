@@ -150,6 +150,7 @@
     <Compile Include="MongoClientDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ProductoMockRepo.cs" />
+    <Compile Include="Repositories\ProductMongoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PAD2023BackEnd.Domain\PAD2023BackEnd.Domain.csproj">

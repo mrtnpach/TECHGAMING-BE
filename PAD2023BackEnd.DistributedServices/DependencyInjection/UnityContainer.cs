@@ -42,7 +42,8 @@ namespace PAD2023BackEnd.DistributedServices.DependencyInjection
             //string conectionString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
 
             // Register definitions
-            _unityContainer.RegisterSingleton<IRepository<Product>, ProductoMockRepo>(new InjectionConstructor(conexion));
+            //_unityContainer.RegisterSingleton<IRepository<Product>, ProductoMockRepo>(new InjectionConstructor(conexion));
+            _unityContainer.RegisterSingleton<IRepository<Product>, ProductMongoRepository>(new InjectionConstructor(conexion));
             _unityContainer.RegisterType<IServiceTest, ServiceTest>();
             _unityContainer.RegisterType<IGetProductsService, GetProductsService>();
         }
