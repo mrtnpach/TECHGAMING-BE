@@ -13,6 +13,7 @@ namespace PAD2023BackEnd.Data.Repositories
         private readonly string _mongoConnectionString;
         private MongoClient _mongoClient;
         private IMongoDatabase _dataBase;
+        private IMongoCollection<Product> _products;
 
         public ProductMongoRepository(string connection)
         {
@@ -27,6 +28,7 @@ namespace PAD2023BackEnd.Data.Repositories
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             _mongoClient = new MongoClient(settings);
             _dataBase = _mongoClient.GetDatabase("techgaming");
+            _products = _dataBase.GetCollection<Product>("product");
         }
 
         public void Delete(int id)
@@ -36,22 +38,19 @@ namespace PAD2023BackEnd.Data.Repositories
 
         public Product Get(int id)
         {
-            // Como se busca por id => ObjectId
-            //Product product = _dataBase.GetType<Product>("product");        
-            return null;
+            Product product = _products.AsQueryable().Where(x => x.ObjectId == id).FirstOrDefault();        
+            return product;
         }
 
         public IEnumerable<Product> Get(Expression<Func<Product, bool>> filter)
         {
-            // Como se busca con filtro
-            // A lo mejor mongo tiene un metodo para buscar con Expression
-            throw new NotImplementedException();
+            var filteredProducts = _products.Find(filter).ToEnumerable();
+            return filteredProducts;
         }
 
         public IEnumerable<Product> GetAll()
         {
-            IMongoCollection<Product> products = _dataBase.GetCollection<Product>("product");
-            List<Product> result = products.Find(d => true).ToList();
+            List<Product> result = _products.Find(d => true).ToList();
             return result;
         }
 
